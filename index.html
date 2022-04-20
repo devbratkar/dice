@@ -138,15 +138,20 @@
             </table>
         </div>
     </div>
-    <button type="button" class="btn">Toss</button>
+    <button type="button" class="btn" onclick="toss()">Toss</button>
 
     <script>
+        function toss(){
+
+        
         var winner = document.getElementById('winner');
         var randomNumber1 = Math.floor(Math.random() * 6) + 1;
         var randomNumber2 = Math.floor(Math.random() * 6) + 1;
 
         dice1();
         dice2();
+        
+
 
         if (randomNumber1 > randomNumber2) {
             console.log("Player 1 wins !");
@@ -161,6 +166,7 @@
             winner.innerHTML = "Player 2 wins !"
         }
         function dice1() {
+            
             let num11 = document.getElementById("11");
             let num12 = document.getElementById("12");
             let num13 = document.getElementById("13");
@@ -169,7 +175,10 @@
             let num16 = document.getElementById("16");
             let num17 = document.getElementById("17");
 
-            
+            clearVisible(num11);clearVisible(num12);
+            clearVisible(num13);clearVisible(num14);
+            clearVisible(num15);clearVisible(num16);
+            clearVisible(num17);
             console.log(randomNumber1);
 
             if (randomNumber1 == 1 || randomNumber1 == 3 || randomNumber1 == 5) {
@@ -196,6 +205,10 @@
             let num17 = document.getElementById("27");
 
             
+            clearVisible(num11);clearVisible(num12);
+            clearVisible(num13);clearVisible(num14);
+            clearVisible(num15);clearVisible(num16);
+            clearVisible(num17);
             console.log(randomNumber2);
 
             if (randomNumber2 == 1 || randomNumber2 == 3 || randomNumber2 == 5) {
@@ -212,9 +225,14 @@
                 diceVisible(num17);
             }
         }
+        
         function diceVisible(x) {
             x.setAttribute("style", "visibility: visible");
         }
+        function clearVisible(x){
+            x.setAttribute("style", "visibility: hidden");
+        }
+    }
     </script>
 </body>
 

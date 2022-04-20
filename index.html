@@ -25,7 +25,7 @@
         }
         .topContainer {
             margin-top: 0;
-            height: 80vh;
+            height: 77vh;
             justify-content: center;
             text-align: center;
             display: flex;
@@ -48,12 +48,15 @@
         }
 
         .topContainer .container table tr td {
-            background-color: wheat;
+            background-color: white;
             border-radius: 50%;
             visibility: hidden;
         }
 
         .topContainer .container table tr .hidden {
+            visibility: hidden;
+        }
+        .btn {
             visibility: hidden;
         }
         @media (max-width: 768px) and (min-width: 635px) {
@@ -63,17 +66,29 @@
         }
         @media (max-width: 635px) {
             h1 {
-                font-size: 25px;
-                margin-top: 80px;
+                font-size: 35px;
+                font-weight: 700;
+                margin-top: 20px;
                 margin-bottom: 50px;
+                width: 90%;
             }
             .topContainer {
                 display: inline-block;
+                height: 62vh;
             }
             .container {
-                width: 200px;
-                height: 200px;
+                width: 180px;
+                height: 180px;
                 margin-bottom: 20px;
+            }
+            .btn {
+                visibility: visible;
+                width: 70%;
+                font-size: 30px;
+                background-color: #00092C;
+                color: white;
+                border: 1px solid black;
+                border-radius: 10px;
             }
             
         }
@@ -123,6 +138,7 @@
             </table>
         </div>
     </div>
+    <button type="button" class="btn">Toss</button>
 
     <script>
         var winner = document.getElementById('winner');

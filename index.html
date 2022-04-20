@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice</title>
+
+    <style>
+        body {
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            font-family: san-serif;
+            letter-spacing: 3px;
+            font-size: 80px;
+            margin: 20px auto 0 auto;
+            padding: 0;
+            border-style: none none solid none;
+            border-width: 3px ;
+            display: inline-block;
+            width: 70%;
+        }
+        .topContainer {
+            margin-top: 0;
+            height: 80vh;
+            justify-content: center;
+            text-align: center;
+            display: flex;
+        }
+
+        .container {
+            background-color: #b20600;
+            width: 250px;
+            height: 250px;
+            padding: 15px;
+            border-radius: 50px;
+            margin: auto;
+            display: inline-block;
+        }
+
+        .topContainer .container table {
+            width: 100%;
+            height: 100%;
+            border-spacing: 20px;
+        }
+
+        .topContainer .container table tr td {
+            background-color: wheat;
+            border-radius: 50%;
+            visibility: hidden;
+        }
+
+        .topContainer .container table tr .hidden {
+            visibility: hidden;
+        }
+        @media (max-width: 768px) and (min-width: 635px) {
+            h1 {
+                font-size: 60px;
+            }
+        }
+        @media (max-width: 635px) {
+            h1 {
+                font-size: 25px;
+                margin-top: 80px;
+                margin-bottom: 50px;
+            }
+            .topContainer {
+                display: inline-block;
+            }
+            .container {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 20px;
+            }
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 id="winner">Let's Play</h1>
+    <div class="topContainer">
+        <div class="container">
+            <table>
+                <tr class="row1">
+                    <td id="11"></td>
+                    <td class="hidden"></td>
+                    <td id="12"></td>
+                </tr>
+                <tr class="row2">
+                    <td id="13"></td>
+                    <td id="14"></td>
+                    <td id="15"></td>
+                </tr>
+                <tr class="row3">
+                    <td id="16"></td>
+                    <td class="hidden"></td>
+                    <td id="17"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="container">
+            <table>
+                <tr class="row1">
+                    <td id="21"></td>
+                    <td class="hidden"></td>
+                    <td id="22"></td>
+                </tr>
+                <tr class="row2">
+                    <td id="23"></td>
+                    <td id="24"></td>
+                    <td id="25"></td>
+                </tr>
+                <tr class="row3">
+                    <td id="26"></td>
+                    <td class="hidden"></td>
+                    <td id="27"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        var winner = document.getElementById('winner');
+        var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+        var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+
+        dice1();
+        dice2();
+
+        if (randomNumber1 > randomNumber2) {
+            console.log("Player 1 wins !");
+            winner.innerHTML = "Player 1 wins !"
+        }
+        else if (randomNumber1 == randomNumber2){
+            console.log("It's a Draw !")
+            winner.innerHTML = "It's a Draw !"
+        }
+        else {
+            console.log("Player 2 wins !")
+            winner.innerHTML = "Player 2 wins !"
+        }
+        function dice1() {
+            let num11 = document.getElementById("11");
+            let num12 = document.getElementById("12");
+            let num13 = document.getElementById("13");
+            let num14 = document.getElementById("14");
+            let num15 = document.getElementById("15");
+            let num16 = document.getElementById("16");
+            let num17 = document.getElementById("17");
+
+            
+            console.log(randomNumber1);
+
+            if (randomNumber1 == 1 || randomNumber1 == 3 || randomNumber1 == 5) {
+                diceVisible(num14);
+            }
+            if (randomNumber1 == 2 || randomNumber1 == 6 || randomNumber1 == 3) {
+                diceVisible(num13);
+                diceVisible(num15);
+            }
+            if (randomNumber1 == 4 || randomNumber1 == 5 || randomNumber1 == 6) {
+                diceVisible(num11);
+                diceVisible(num12);
+                diceVisible(num16);
+                diceVisible(num17);
+            }
+        }
+        function dice2() {
+            let num11 = document.getElementById("21");
+            let num12 = document.getElementById("22");
+            let num13 = document.getElementById("23");
+            let num14 = document.getElementById("24");
+            let num15 = document.getElementById("25");
+            let num16 = document.getElementById("26");
+            let num17 = document.getElementById("27");
+
+            
+            console.log(randomNumber2);
+
+            if (randomNumber2 == 1 || randomNumber2 == 3 || randomNumber2 == 5) {
+                diceVisible(num14);
+            }
+            if (randomNumber2 == 2 || randomNumber2 == 6 || randomNumber2 == 3) {
+                diceVisible(num13);
+                diceVisible(num15);
+            }
+            if (randomNumber2 == 4 || randomNumber2 == 5 || randomNumber2 == 6) {
+                diceVisible(num11);
+                diceVisible(num12);
+                diceVisible(num16);
+                diceVisible(num17);
+            }
+        }
+        function diceVisible(x) {
+            x.setAttribute("style", "visibility: visible");
+        }
+    </script>
+</body>
+
+</html>
